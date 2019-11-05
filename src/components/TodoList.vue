@@ -4,7 +4,7 @@
             <div class="column">
                 <div class="field is-grouped" v-bind:key="tarefa.description" v-for="(tarefa,index) in tarefas">
                     <p class="control">
-                      <a class="button is-rounded is-small is-info is-light check-button" @click="check(index)">
+                      <a class="button is-rounded is-small is-info is-light check-button" @click="concluir(tarefa), remover(index)">
                         <span class="icon is-smal">
                             <font-awesome-icon :icon="['fas', 'check']" />
                         </span>
@@ -37,6 +37,9 @@ export default {
     },
     remover (index) {
       this.$emit('remover', index)
+    },
+    concluir (tarefa) {
+      this.$emit('concluir', tarefa)
     }
   }
 }

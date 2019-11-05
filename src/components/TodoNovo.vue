@@ -4,7 +4,7 @@
       <div class="column is-half is-offset-one-quarter">
           <div class="field is-grouped">
               <p class="control is-expanded">
-                  <input class="input is-primary has-text-centered"
+                  <input maxlength="30" class="input is-primary has-text-centered"
                   type="text"
                   placeholder="NovaTarefa..."
                   v-model="tarefa"/>
