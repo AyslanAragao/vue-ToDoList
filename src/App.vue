@@ -11,20 +11,20 @@
           </div>
         </nav>
       </div>
-
       <!-- Hero content: will be in the middle -->
       <div class="hero-body">
         <div class="container has-text-centered">
           <div class="row">
             <div class="columns">
               <div class="column is-half is-offset-one-quarter">
-                <todo-card></todo-card>
+                <todo-card @concluirTarefa=enviarTarefaConcluida ></todo-card>
+                <br>
+                <todo-card-complete :tarefa=tarefaapp></todo-card-complete>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
       <!-- Hero footer: will stick at the bottom -->
       <div class="hero-foot">
         <div class="container">
@@ -44,14 +44,25 @@
 
 <script>
 import todoCard from './components/TodoCard'
+import todoCardComplete from './components/TodoComplete/TodoCardComplete'
+
 export default {
   name: 'app',
   components: {
-    todoCard
+    todoCard,
+    todoCardComplete
   },
   data () {
     return {
-      msg: 'Hello, World!'
+      msg: 'Hello, World!',
+      tarefaapp: []
+    }
+  },
+  methods: {
+    enviarTarefaConcluida (tarefa) {
+      // alert(this.tarefaapp)
+      // let tarefaConcluida = tarefa
+      this.tarefaapp.push(tarefa)
     }
   }
 }
