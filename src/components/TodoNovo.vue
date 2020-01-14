@@ -34,7 +34,8 @@ export default {
   methods: {
     enviarTarefa () {
       if (this.tarefa !== '') {
-        this.$emit('novaTarefa', this.tarefa)
+        let novaTarefa = { Descricao: this.tarefa, Finalizado: false }
+        this.$store.dispatch('adicionarTarefaAction', novaTarefa)
       }
       this.tarefa = ''
     }

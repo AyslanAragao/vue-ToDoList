@@ -6,7 +6,7 @@
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-item">VueJs Estudo 0.2</a>
+              <a class="navbar-item">VueJs Estudo 0.3</a>
             </div>
           </div>
         </nav>

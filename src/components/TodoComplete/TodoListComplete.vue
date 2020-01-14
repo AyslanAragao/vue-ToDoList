@@ -13,7 +13,12 @@
 <script>
 export default {
   name: 'todo-list-complete',
-  props: ['tarefasconcluidas']
+  props: [''],
+  computed: {
+    tarefasconcluidas () {
+      return this.$store.getters.tarefasConcluidas
+    }
+  }
 }
 </script>
 

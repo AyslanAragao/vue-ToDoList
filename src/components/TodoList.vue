@@ -27,7 +27,7 @@
 <script>
 export default {
   name: 'todo-list',
-  props: ['tarefas'],
+  props: [''],
   data () {
     return {}
   },
@@ -36,10 +36,16 @@ export default {
       this.$emit('check', index)
     },
     remover (index) {
-      this.$emit('remover', index)
+      // this.$emit('remover', index)
+      this.$store.dispatch('removerTarefaConcluidaAction', index)
     },
     concluir (tarefa) {
-      this.$emit('concluir', tarefa)
+      this.$store.dispatch('adicionarTarefaConcluidaAction', tarefa)
+    }
+  },
+  computed: {
+    tarefas () {
+      return this.$store.getters.tarefas
     }
   }
 }

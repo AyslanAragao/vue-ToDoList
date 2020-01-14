@@ -3,7 +3,7 @@
     <header class="card-header">
       <p class="card-header-title has-text-left">{{hoje}}</p>
       <div class="has-text-right">
-        <p class="card-header-title">{{tarefas.length}} {{lbtarefa}}</p>
+        <p class="card-header-title">{{this.$store.getters.tarefas.length}} {{lbtarefa}}</p>
       </div>
     </header>
     <div class="card-content">
@@ -67,7 +67,7 @@ export default {
       }`
     },
     lbtarefa: function () {
-      return `${this.tarefas.length > 1 ? 'Tarefas' : 'Tarefa'}`
+      return `${this.$store.getters.tarefas.length > 1 ? 'Tarefas' : 'Tarefa'}`
     }
   },
   methods: {
