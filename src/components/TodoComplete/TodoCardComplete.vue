@@ -6,12 +6,10 @@
         <p class="card-header-title">{{tarefasconcluidas.length}} {{lbtarefa}}</p>
       </div>
     </header>
-    <div class="card-content">
-      <div class="content">
-      </div>
-      <div class="content">
-        <todo-list-complete :tarefasconcluidas=tarefasconcluidas></todo-list-complete>
-        </div>
+    <div class="card-content lado">
+      <todo-list-complete :tarefasconcluidas=tarefa></todo-list-complete>
+      <!-- <div class="separar"></div>
+      <todo-list-complete :tarefasconcluidas=tarefa></todo-list-complete> -->
     </div>
   </div>
 </template>
@@ -47,5 +45,14 @@ export default {
 </script>
 
 <style scoped>
-
+.lado {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.separar {
+  border: 1px solid black;
+  background: red;
+  orientation: portrait;
+}
 </style>

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="columns">
             <div class="column">
-                <div class="field is-grouped" v-bind:key="tarefa.description" v-for="(tarefa,index) in tarefas">
+                <div class="field is-grouped" v-bind:key="tarefa.ID" v-for="(tarefa,index) in tarefas">
                     <p class="control">
                       <a class="button is-rounded is-small is-info is-light check-button" @click="concluir(tarefa), remover(index)">
                         <span class="icon is-smal">
@@ -10,7 +10,7 @@
                         </span>
                       </a>
                     </p>
-                    <p class="control is-expanded" :class="{'checked':tarefa.checked}">{{tarefa.description}}</p>
+                    <p class="control is-expanded" :class="{'checked':tarefa.Finalizado}">{{tarefa.Descricao}}</p>
                     <p class="control">
                       <a class="button is-rounded is-danger is-small" @click="remover(index)">
                           <span class="icon is-small">

@@ -7,7 +7,8 @@
                   <input maxlength="30" class="input is-primary has-text-centered"
                   type="text"
                   placeholder="NovaTarefa..."
-                  v-model="tarefa"/>
+                  v-model="tarefa"
+                  @keyup.enter="enviarTarefa"/>
               </p>
               <p class="control">
                   <a class="button is-primary add-button" @click="enviarTarefa">
