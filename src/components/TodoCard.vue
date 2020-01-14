@@ -3,7 +3,7 @@
     <header class="card-header">
       <p class="card-header-title has-text-left">{{hoje}}</p>
       <div class="has-text-right">
-        <p class="card-header-title">{{tarefas.length}} {{lbtarefa}}</p>
+        <p class="card-header-title">{{this.$store.getters.tarefas.length}} {{lbtarefa}}</p>
       </div>
     </header>
     <div class="card-content">
@@ -11,6 +11,7 @@
        <todo-novo @novaTarefa="adicionarTarefa"></todo-novo>
       </div>
       <div class="content">
+        {{info}}
         <todo-list :tarefas="tarefas" @concluir="concluirTarefa" @remover="removerTarefa"></todo-list>
       </div>
     </div>
@@ -20,6 +21,7 @@
 <script>
 import todoNovo from './TodoNovo'
 import todoList from './TodoList'
+import axios from 'axios'
 
 export default {
   name: 'todo-card',
@@ -53,7 +55,8 @@ export default {
         'Novembro',
         'Dezembro'
       ],
-      tarefas: []
+      tarefas: [],
+      info: ''
     }
   },
   computed: {
@@ -64,12 +67,12 @@ export default {
       }`
     },
     lbtarefa: function () {
-      return `${this.tarefas.length > 1 ? 'Tarefas' : 'Tarefa'}`
+      return `${this.$store.getters.tarefas.length > 1 ? 'Tarefas' : 'Tarefa'}`
     }
   },
   methods: {
     adicionarTarefa (tarefa) {
-      let novaTarefa = { description: tarefa, checked: false }
+      let novaTarefa = { Descricao: tarefa, Finalizado: false }
       this.tarefas.push(novaTarefa)
     },
     checkTarefa (index) {
@@ -80,7 +83,14 @@ export default {
     },
     concluirTarefa (tarefa) {
       this.$emit('concluirTarefa', tarefa)
+    },
+    carregarTarefas () {
     }
+  },
+  mounted () {
+    axios
+      .get('http://localhost:54281/api/tarefa')
+      .then(response => (this.tarefas = response.data))
   }
 }
 </script>

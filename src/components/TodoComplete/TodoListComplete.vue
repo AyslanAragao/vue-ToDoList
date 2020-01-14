@@ -2,8 +2,8 @@
     <div class="row">
         <div class="columns">
             <div class="column">
-                <div class="field is-grouped" :key="tarefa.description" v-for="(tarefa) in tarefasconcluidas">
-                    <p class="control is-expanded checked">{{tarefa.description}}</p>
+                <div class="field is-grouped" :key="tarefa.ID" v-for="(tarefa) in tarefasconcluidas">
+                    <p class="control is-expanded checked">{{tarefa.Descricao}}</p>
                 </div>
             </div>
         </div>
@@ -13,7 +13,12 @@
 <script>
 export default {
   name: 'todo-list-complete',
-  props: ['tarefasconcluidas']
+  props: [''],
+  computed: {
+    tarefasconcluidas () {
+      return this.$store.getters.tarefasConcluidas
+    }
+  }
 }
 </script>
 
