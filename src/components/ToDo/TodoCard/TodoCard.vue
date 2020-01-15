@@ -8,7 +8,7 @@
     </header>
     <div class="card-content">
       <div class="content">
-       <todo-novo @novaTarefa="adicionarTarefa"></todo-novo>
+       <todo-novo></todo-novo>
       </div>
       <div class="content">
         {{info}}
